@@ -1,0 +1,19 @@
+#lava{
+	background-image: url('./colors/lava.jpg');
+	background-size: 200px;
+	background-attachment: fixed;
+}
+
+#blur{
+	animation-duration: 1s;
+	animation-name: blurAnim;
+}
+
+@keyframes blurAnim{
+	from { 
+		filter: blur(10px);
+	}
+	to { 
+		filter: blur(0px);
+	}
+}

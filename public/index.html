@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HMG Chat Room 2</title>
+		<link href="main.css" rel="stylesheet"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.png"/>
+	</head>
+	
+	<body>
+		<script>
+			function addName(e) {
+				localStorage.setItem("name", document.getElementById("name").value)
+				window.location.replace(window.location.href + "app.html")
+			}
+		
+			if (localStorage.getItem("name")) {
+				window.location.replace(window.location.href + "app.html")
+			}
+		</script>
+		
+		<input type="text" maxlength="12" placeholder="Name..." id="name"></input>
+		<button onclick="addName()">Go!</button>
+	</body>
+</html>
