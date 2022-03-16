@@ -1,11 +1,12 @@
 body{
 	font-family: monospace;
+	background-color: #282c34;
 }
 .mes {
-	font-size: 20px;
-	border-radius: 5px;
+	font-size: 2.5vh;
+	border-radius: 0.8vh;
 	white-space: nowrap;
-	margin: 0;
+	margin-left: 0;
 	overflow: hidden;
 	text-shadow:
     -1px -1px 0 #000,
@@ -16,8 +17,8 @@ body{
 	padding-left: 8px;
 }
 .user {
-	font-size: 20px;
-	border-radius: 5px;
+	font-size: 2.5vh;
+	border-radius: 0.8vh;
 	white-space: nowrap;
 	margin: 0;
 	overflow: hidden;
@@ -32,8 +33,8 @@ body{
 	width: 70%;
 }
 .error-mes {
-	font-size: 25px;
-	border-radius: 5px;
+	font-size: 3vh;
+	border-radius: 0.8vh;
 	white-space: nowrap;
 	border: 1px solid black;
 	margin: 0;
@@ -45,37 +46,110 @@ body{
 	color: white;
 	padding-left: 8px;
 }
+img {
+	margin: 10px;
+	border-radius: 1vh;
+}
 #main-onl{
 	position: absolute;
-	width: 20%;
-	height: calc(80% - 6px);
+	width: 20vw;
+	height: 80vh;
 	right: 0px;
 	bottom: 0px;
-	border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 0;
+	background-color: #3b414d;
 }
 #main-mes{
-	position: absolute;
-	width: 80%;
-	height: calc(80% - 6px);
+	position: fixed;
+	width: 80vw;
+	height: 80vh;
 	left: 0px;
 	bottom: 0px;
+	padding-top: 15px;
+	background-color: #282c34;
+	display: block;
+	overflow-y: scroll;
+}
+#main-mes::-webkit-scrollbar{
+	background: rgba(0,0,0,0);
+}
+#main-mes::-webkit-scrollbar-thumb{
+	background: #3b414d;
+	border-radius: 2vh;
 }
 #main-ta {
 	resize: none;
-	position: fixed;
-	width: calc(80% - 6px);
-	height: 20%;
+	position: absolute;
+	width: 80vw;
+	height: 20vh;
 	top: 0px;
 	left: 0px;
+	background-color: #3b414d;
+	display: block;
+	color: #fff;
+	transition-duration: 0.2s;
 }
 #main-sub {
-	position: fixed;
+	position: absolute;
 	width: 20%;
-	height: calc(20% + 6px);
+	height: 20%;
 	top: 0px;
 	right: 0px;
+	font-size: 5vh;
+	display: block;
+	border: 0.2vh solid white;
+	margin: 0;
+}
+#name-form {
+	width: 40%;
+	height: 50%;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	border-radius: 1vh;
+	background: #3b414d;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+#name {
+	font-size: 3vh;
+	height: auto;
+	color: #fff;
+	margin-top: 150px;
+	background: #525a6b;
+	border: none;
+}
+#name::placeholder {
+	color: rgba(255,255,255,0.2);
+}
+#name:focus{
+	border: none;
+	outline: none;
+}
+#name-button {
+	font-size: 50px;
+	height: 60px;
+	background: #525a6b;
+	color: white;
+	margin-top: 20px;
+}
+.login {
+	color: #fff;
+	justify-self: flex-start;
+}
+.mui-divider{
+	width: 400px;
+	background-color: #fff;
+	justify-self: flex-start;
 }

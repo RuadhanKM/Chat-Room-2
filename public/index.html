@@ -4,6 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>HMG Chat Room 2</title>
+		
+		<link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+		<script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+		
 		<link href="main.css" rel="stylesheet"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.png"/>
 	</head>
@@ -20,7 +24,11 @@
 			}
 		</script>
 		
-		<input type="text" maxlength="12" placeholder="Name..." id="name"></input>
-		<button onclick="addName()">Go!</button>
+		<div id="name-form" class="mui-panel">
+			<h1 class="login"> Log In </h1>
+			<div class="mui-divider"></div>
+			<input type="text" maxlength="12" placeholder="Name..." id="name"></input>
+			<button id="name-button" onclick="addName()" class="mui-btn mui-btn--raised">Go!</button>
+		</div>
 	</body>
 </html>

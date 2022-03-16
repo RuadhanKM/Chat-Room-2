@@ -4,17 +4,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title id="title">HMG Chat Room</title>
+		
+		<link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+		<script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+		
 		<link href="./main.css" rel="stylesheet"/>
 		<link href="./custom-colors.css" rel="stylesheet"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.png"/>
 	</head>
 	
 	<body>
-		<div id="main-mes"></div>
-		<div id="main-onl"></div>
+		<div id="main-mes" class="mui-container"></div>
+		<div id="main-onl" class="mui-container"></div>
 	
-		<textarea id="main-ta"></textarea>
-		<button id="main-sub">Send</button>
+		<div class="mui-textfield">
+			<textarea id="main-ta"></textarea>
+		</div>
+		<button id="main-sub" class="mui-btn mui-btn--primary">Send</button>
 		
 		<script src='./message.js'></script>
 		<script src='./main.js'></script>

@@ -7,11 +7,42 @@ function updateButtonsEnabled() {
 	sub.disabled = !connected
 }
 
+function ev(e) {
+	e.preventDefault()
+}
+function _arrayBufferToBase64( buffer ) {
+	var binary = '';
+	var bytes = new Uint8Array( buffer );
+	var len = bytes.byteLength;
+	for (var i = 0; i < len; i++) {
+		binary += String.fromCharCode( bytes[ i ] );
+	}
+	return window.btoa( binary );
+}
+
 function connect() {
 	const ws = new WebSocket('ws://'+window.location.hostname+":8080")
 	
+	function handleFileDrop(ev){
+		ev.preventDefault()
+		if (ev.dataTransfer.items) {
+			for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+				if (ev.dataTransfer.items[i].kind === 'file') {
+					var file = ev.dataTransfer.items[i].getAsFile();
+
+					let fileReader = new FileReader()
+					
+					fileReader.onload = function (e) {
+						ws.send(JSON.stringify([localStorage.getItem("name"), e.target.result, file.name]))
+					}
+					
+					let data = fileReader.readAsDataURL(file)
+				}
+			}
+		}
+	}
 	function submitMessage() {
-		if (!localStorage.getItem("name")) {window.location.replace("/")}
+		if (!localStorage.getItem("name")) {window.location.replace("/chat")}
 		
 		var message = ta.value
 		if (message == "") {return}
@@ -22,6 +53,9 @@ function connect() {
 		}
 		ta.value = ""
 	}
+	
+	document.getElementById("main-mes").addEventListener('drop', handleFileDrop)
+	document.getElementById("main-mes").addEventListener('dragover', ev)
 	
 	ws.addEventListener('open', function (event) {
 		addMessage("Connected to server!", "green", true)
@@ -84,5 +118,5 @@ function connect() {
 }
 
 if (localStorage.getItem("name")) {connect()} else {
-	window.location.replace("/")
+	window.location.replace("/chat")
 }

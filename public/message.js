@@ -18,6 +18,6 @@ function handleClientCommands(command) {
 	}
 	if (parsedCommand[0] == "clear_name") {
 		localStorage.removeItem("name")
-		window.location.replace("/")
+		window.location.replace("/chat")
 	}
 }
